@@ -1,52 +1,7 @@
 <html>
 <head>
 
-    <style type="text/css">
-        body {
-            display: block;
-            padding: 5;
-            margin: 5;
-            font-family: arial, sans-serif;
-            font-size: 13px;
-            color: white;
-            background-color: #474642;
-        }
-
-        #title {
-            font-family: bold;
-            font-size: 24px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        #options {
-            font-family: bold;
-            font-size: 20px;
-        }
-
-        #listing {
-            font-family: bold;
-            font-size: 18px;
-        }
-
-        #jobsContainer {
-            overflow: scroll;
-            height: 230px;
-            padding: 1em;
-            border: 1px solid #CCCCFF;
-            margin: 1em 0;
-        }
-
-        #saveError {
-            font-family: bold;
-            color: red;
-            font-size: 16px;
-            text-align: center;
-        }
-
-    </style>
-
+    <link rel="stylesheet" href="css/options.css">
 
     <script src='jquery-1.5.1.min.js'></script>
     <script type="text/javascript">
@@ -75,13 +30,9 @@
 
         function findAllJobs() {
             $.ajaxSetup({"error":function(data) {
-                console.log(data);
-                if (data.readyState == 4) {
-                    console.log("erreur 404");
-                    $("#saveError").text('Error 404: CI not found');
-                } else {
-                    $("#saveError").html("&nbsp;");
-                }
+                //jherault: whatever the ready state value, if CI is not found, it is not found
+                console.log("erreur 404");
+                $("#saveError").text('Error 404: CI not found');
             }});
 
             var items = [];
@@ -133,24 +84,6 @@
 
 
     </script>
-    <style type="text/css" media="screen">
-        .red {
-            background-color: red;
-        }
-
-        .yellow {
-            background-color: yellow;
-        }
-
-        .blue {
-            background-color: blue;
-        }
-
-        .disabled {
-            background-color: grey;
-        }
-    </style>
-
 
 </head>
 <body>
